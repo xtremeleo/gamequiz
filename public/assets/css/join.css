@@ -1,0 +1,208 @@
+.join-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 95vh;
+}
+
+.join-content .logo {
+  margin-bottom: 40px;
+/*
+  font-family: "Niconne";
+*/
+  color: #fff;
+}
+
+.join-content .logo h1 {
+  font-size: 52px;
+  font-weight: 400;
+}
+
+.join-content .join-box {
+  position: relative;
+  min-width: 350px;
+  min-height: 430px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05), 0px 29px 95px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05), 0px 29px 95px 0px rgba(0, 0, 0, 0.16);
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.join-content .join-box .join-head {
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+/*
+  border-bottom: 1px solid #ddd;
+*/
+  text-align: center;
+}
+
+.join-content .join-box label {
+  color: #666;
+  font-weight: 700;
+}
+
+.join-content .join-box p {
+  color: #000;
+  font-weight: normal;
+}
+
+.join-content .join-box .utility {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.join-content .join-box .btn-container {
+  margin-bottom: 0;
+}
+
+.join-content .join-box .join-form, .join-content .join-box .forget-form {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.join-content .join-box .forget-form {
+  opacity: 0;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.join-content .join-box.flipped {
+  min-height: 300px;
+}
+
+.join-content .join-box.flipped .join-form {
+  opacity: 0;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.join-content .join-box.flipped .forget-form {
+  opacity: 1;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+
+
+/*
+success box
+*/
+
+.join-content .success-box {
+  position: relative;
+  min-width: 350px;
+  min-height: 480px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05), 0px 29px 95px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05), 0px 29px 95px 0px rgba(0, 0, 0, 0.16);
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.join-content .success-box .join-head {
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+/*
+  border-bottom: 1px solid #ddd;
+*/
+  text-align: center;
+}
+
+.join-content .success-box label {
+  color: #666;
+  font-weight: 700;
+}
+
+.join-content .success-box p {
+  color: #000;
+  font-weight: normal;
+}
+
+.join-content .success-box .utility {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.join-content .success-box .btn-container {
+  margin-bottom: 0;
+}
+
+.join-content .success-box .join-form, .join-content .success-box .forget-form {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.join-content .success-box .forget-form {
+  opacity: 0;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.join-content .success-box.flipped {
+  min-height: 300px;
+}
+
+.join-content .success-box.flipped .join-form {
+  opacity: 0;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.join-content .success-box.flipped .forget-form {
+  opacity: 1;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}

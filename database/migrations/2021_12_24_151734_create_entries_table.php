@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateEntriesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('entries', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('quiz_id');
+            $table->bigInteger('user_id');
+            $table->longText('memo');
+            $table->longText('answers');
+            $table->longText('score');
+            $table->dateTime('start_datetime');
+            $table->dateTime('end_datetime');
+            $table->string('status',1)->default(0);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('entries');
+    }
+}

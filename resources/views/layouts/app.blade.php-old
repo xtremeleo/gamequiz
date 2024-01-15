@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- CSRF Token -->
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+  
+	<title>@yield('page_title') | {{ config('app.name', 'Laravel') }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+<!--
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+-->
+<!--
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+-->
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon css-->
+	<link rel="icon" href="{{ asset('assets/img/brand/favicon.png') }}" type="image/icon">
+	
+	</head>
+  <body class="app sidebar-mini">
+	  <script type="text/javascript">
+		var i = setTimeout(logout, 600000);
+		
+		function logout()
+		{
+			document.getElementById("logout-form").submit();
+		}
+    </script>
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="{{route('home')}}"><img src="{{asset('assets/img/brand/black.png')}}" width="150px"></a>
+      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+      <!-- Navbar Right Menu-->
+      <ul class="app-nav">
+        <li class="app-search">
+			
+        </li>
+<!--
+        <li class="app-search">
+          <input class="app-search__input" type="search" placeholder="Search">
+          <button class="app-search__button"><i class="fa fa-search"></i></button>
+        </li>
+-->
+        <!-- User Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="{{route('account')}}"><i class="fa fa-lock" aria-hidden="true"></i> Account</a></li>
+            <li>
+				<a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+					@csrf
+				</form>
+			</li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user">
+<!--
+		  <img class="app-sidebar__user-avatar" src="{{Auth::user()->avatar}}" alt="User Image" width="60px" />
+-->
+        <div>
+          <p class="app-sidebar__user-name"><strong>{{Auth::user()->name}}</strong></p>
+          <p class="app-sidebar__user-designation"></p>
+        </div>
+      </div>
+      <ul class="app-menu">
+		<li><a class="app-menu__item" href="{{route('home')}}"><i class="app-menu__icon fa  fa-home"></i><span class="app-menu__label">Home</span></a></li>    
+		<li><a class="app-menu__item" href="{{route('dashboard')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>  
+<!--
+		<li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-exchange"></i><span class="app-menu__label">Money Transfer</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="{{route('dashboard')}}"><i class="app-menu__icon fa fa-exchange"></i> International</a></li>
+            <li><a class="treeview-item" href="{{route('dashboard')}}"><i class="app-menu__icon fa fa-exchange"></i> Local</a></li>
+          </ul>
+        </li>
+-->
+		<li><a class="app-menu__item" href="{{route('wallet')}}"><i class="app-menu__icon fa fa-money"></i><span class="app-menu__label">Wallet</span></a></li>  
+		<li><a class="app-menu__item" href="{{route('account')}}"><i class="app-menu__icon fa fa-lock"></i><span class="app-menu__label">Account</span></a></li>    
+		<li>
+			<a href="{{ route('logout') }}" class="app-menu__item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="app-menu__icon fa fa-key"></i><span class="app-menu__label">Logout</span></a>
+			<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+				@csrf
+			</form>
+		</li>  
+      </ul>
+    </aside>
+    <main class="app-content">
+		<style>
+		#blindfold{display: none;}
+		.blindfold {width: 100%; height: 100%; position: fixed; background: url('{{asset('assets/img/theme/clear-black.png')}}'); z-index: 999; margin: -30px;}
+		</style>
+		<div id="blindfold" class="blindfold justify-content-around align-items-center">
+			<img src="{{asset('assets/img/theme/loading.gif')}}" width="100px" height="100px" />
+		</div>
+		
+		@if(Session::has('message'))
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<div class="container">
+					{{ Session::get('message') }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+		@endif
+		@if($errors->any())
+		<div class="alert alert-danger alert-dismissible fade show position-fixed" role="alert" style="right:6px;">
+			<div class="container">
+				<h4>Error(s)</h4>
+				 <ul class="p-0 ml-3">
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</div>
+		@endif
+      @yield('content')
+    </main>
+    <!-- Essential javascripts for application to work-->
+	<script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
+	<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('assets/js/main.js') }}"></script>
+	<!-- The javascript plugin to display page loading on top-->
+	<script src="{{ asset('assets/js/plugins/pace.min.js') }}"></script>
+    <!-- tuogol script-->
+    
+    
+  </body>
+</html>

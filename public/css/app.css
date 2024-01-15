@@ -1,0 +1,60 @@
+/*
+Extra small devices (portrait phones, less than 576px)
+*/
+@media (max-width: 575.98px) {
+	.header {height: 55px; overflow: hidden;}
+	.mobile-menu {height: 60px;}
+	.main-content {height: calc(100vh - 125px); margin: 0px  0px 0px 0px ; overflow: auto;}
+	
+	
+}
+
+/*
+// Small devices (landscape phones, less than 768px)
+*/
+
+/*
+// Small devices (landscape phones, less than 768px)
+*/
+@media (min-width: 576px) and (max-width: 767.98px)  {
+	.header {height: 55px; overflow: hidden;}
+	.mobile-menu {height: 60px;}
+	.main-content {height: calc(100vh - 125px); margin: 0px  0px 0px 0px ; overflow: auto;}
+	
+}
+
+/*
+// Medium devices (tablets, less than 992px)
+*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.header {height: 75px; overflow: hidden;}
+	.mobile-menu {height: 70px;}
+	.main-content {height: calc(100vh - 145px); margin: 0px  0px 0px 0px ; overflow: auto;}
+	
+	
+}
+
+/*
+// Large devices (desktops, less than 1200px)
+*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	
+}
+
+/*
+// Extra large devices (large desktops, 1200px and up)
+*/
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+
+}
+
+@media (min-width: 1400px) {
+	
+}
+
+/*
+Transaction color
+*/
+.CREDIT{color: #008000!important;}
+.DEBIT{color: #941010!important;}
