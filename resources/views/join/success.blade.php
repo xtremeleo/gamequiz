@@ -11,9 +11,11 @@
 	<div class="success-box">
 		<div class="join-form">
 				<h4 class="join-head">QUIZ #{{$quiz->id}}</h4>
+<!--
 				<div style="position: absolute; top: -30px; right: -20px;">
 					 <img src="{{asset('assets/img/theme/paid.png')}}" width="130px"/>
 				</div>
+-->
 				<div class="form-group">
 					<label class="control-label">STARTS</label>
 					<p>{{$quiz->start(' jS M Y h:ia')}}</p>
@@ -25,10 +27,6 @@
 				<div class="form-group">
 					<label class="control-label">CASH PRIZE</label>
 					<p>₦{{number_format($quiz->prize)}}</p>
-				</div>
-				<div class="form-group">
-					<label class="control-label">ENTRY FEE</label>
-					<p>₦{{number_format($quiz->entry_fee)}}</p>
 				</div>
 				<div class="form-group">
 					<label class="control-label">PAID ON</label>

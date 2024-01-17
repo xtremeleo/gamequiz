@@ -11,7 +11,6 @@
 		<thead class="thead-light">
 			<tr >
 				<th class="" scope="col">Quiz</th>
-				<th class=" d-none d-sm-none d-md-table-cell" scope="col">Entry Fee</th>
 				<th class=" d-none d-sm-none d-md-table-cell" scope="col">Starts</th>
 				<th class=" d-none d-sm-none d-md-table-cell" scope="col">Ends</th>
 				<th class="d-none d-sm-none d-md-table-cell" scope="col">Prize</th>
@@ -46,7 +45,6 @@
 							</table>
 						</div>
 					</td>
-					<td class=" d-none d-sm-none d-md-table-cell">₦{{number_format($quiz->entry_fee)}}</td>
 					<td class=" d-none d-sm-none d-md-table-cell">{{$quiz->start('jS M Y, h:ia')}}</td>
 					<td class=" d-none d-sm-none d-md-table-cell">{{$quiz->end('jS M Y, h:ia')}}</td>
 					<td class="d-none d-sm-none d-md-table-cell">₦{{number_format($quiz->prize)}}</td>

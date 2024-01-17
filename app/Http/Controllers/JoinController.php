@@ -43,12 +43,6 @@ class JoinController extends Controller
 		
 		$quiz = Quiz::find($id);
 		
-		if ($this->wallet->balance() < $quiz->entry_fee)
-		{
-			$errors = array("Your wallet balance is low, please fund your wallet and try again");
-			return redirect()->route("wallet.fund")->withErrors($errors);
-		}
-		
 		$quiz_start_date = date_create($quiz->start_datetime);
 		
 		$user_id = Auth::user()->id;
@@ -122,21 +116,12 @@ class JoinController extends Controller
 			if ($request->action == "joinquiz")
 			{
 				$quiz = Quiz::find($id);
-				
-				if ($this->wallet->balance() < $quiz->entry_fee)
-				{
-					$errors = array("Your wallet balance is low, please fund your wallet and try again");
-					return redirect()->route("wallet.fund")->withErrors($errors);
-				}
-				
-				$debit_data = array( "amount" => $quiz->entry_fee, "method" => "QUIZ GAME", "desc" => "#".$quiz->id." Quiz Entry Fee", "details" => "Quiz Game", );
-				$this->wallet->debit($debit_data);
-				
+					
 								
 				$entry = new Entry;
 				$entry->quiz_id = $id ;
 				$entry->user_id = $user->id;
-				$entry->memo = "Pay with wallet";
+				$entry->memo = "Free to join"; //"Pay with wallet";
 				$entry->answers = "NONE";
 				$entry->score = 0;
 				$entry->status = 1;

@@ -27,10 +27,6 @@
 					<label class="control-label">CASH PRIZE</label>
 					<p>₦{{number_format($quiz->prize)}}</p>
 				</div>
-				<div class="form-group">
-					<label class="control-label">ENTRY FEE</label>
-					<p>₦{{number_format($quiz->entry_fee)}}</p>
-				</div>
 				<div class="form-group btn-container">
 <!--
 					<button class="btn btn-primary btn-block" onclick="payWithPaystack()"><i class="fa fa-money fa-lg fa-fw"></i>PAY WITH PAYSTACK</button>
