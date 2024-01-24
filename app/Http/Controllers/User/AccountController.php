@@ -36,7 +36,7 @@ class AccountController extends Controller
     
     public function __construct()
     {
-        $this->middleware(['auth','user.active']);
+        $this->middleware(['auth','only.user','user.active']);
         $this->public_key = config('paystack.public_key');
 		$this->secret_key = config('paystack.secret_key');
 		$this->wallet = new Wallet;

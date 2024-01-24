@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -27,7 +27,7 @@ class HomeController extends Controller
     
     public function __construct()
     {
-        $this->middleware(['auth','only.user','user.active']);
+        $this->middleware(['auth','only.admin']);
         $this->game = new Game;
 		$this->system = new System; 
     }
@@ -78,6 +78,6 @@ class HomeController extends Controller
 		});
 		
 		
-        return view('user.dashboard',['entries' => $entries, 'transactions' => $transactions, 'quizzes' => $quizzes]);
+        return view('admin.dashboard',['entries' => $entries, 'transactions' => $transactions, 'quizzes' => $quizzes]);
     }
 }
