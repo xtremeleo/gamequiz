@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('page_title', 'Dashboard')
 @section('content')
-@include('user.components.overview',['view' => 'wallet'])
+@include('admin.components.overview',['view' => 'quiz'])
 
 <div class="container">
 	<div class="col-12 mt-3">

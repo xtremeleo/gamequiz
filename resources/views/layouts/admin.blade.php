@@ -82,7 +82,7 @@
 		<div class="main-color-bg row p-3 ">
 			<ul class="nav justify-content-between">
 			  <li class="nav-item">
-				<a class="nav-link black" href="{{route('wallet')}}"><i class="bi bi-wallet2"></i> Wallet</a>
+				<a class="nav-link black" href="{{route('admin.users')}}"><i class="bi bi-people-fill"></i> Users</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link black" href="{{route('game')}}"><i class="bi bi-controller"></i> Quiz</a>

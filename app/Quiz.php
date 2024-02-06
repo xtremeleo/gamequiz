@@ -78,6 +78,7 @@ class Quiz extends Model
 	{
 		$questions = $this->questions;
 		return json_decode($questions, true);
+		//~ return $questions;
 		
 	}
 
