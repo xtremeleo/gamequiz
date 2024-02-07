@@ -15,7 +15,7 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->string('entry_nos');
+            $table->string('winning_percent');
             //~ $table->decimal('entry_fee', 8, 2);
             $table->decimal('prize', 8, 2);
             $table->dateTime('start_datetime');

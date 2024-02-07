@@ -24,6 +24,7 @@ Route::post('/admin/users/action', 'Admin\UsersController@action')->name('admin.
 //Games
 Route::get('/admin/games', 'Admin\GamesController@index')->name('admin.games');
 Route::get('/admin/games/new', 'Admin\GamesController@create')->name('admin.games.new');
+Route::get('/admin/games/edit', 'Admin\GamesController@edit')->name('admin.games.edit');
 Route::get('/admin/games/details', 'Admin\GamesController@details')->name('admin.games.details');
 Route::get('/admin/games/questions', 'Admin\GamesController@questions')->name('admin.games.questions');
 Route::get('/admin/games/action', 'Admin\GamesController@index');

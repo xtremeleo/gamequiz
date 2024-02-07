@@ -13,9 +13,9 @@
 			<thead class="thead-light">
 				<tr >
 					<th class="" scope="col">#</th>
-					<th class=" d-none d-sm-none d-md-table-cell" scope="col">Entries Allowed</th>
 					<th class=" d-none d-sm-none d-md-table-cell" scope="col">Start on</th>
 					<th class="d-none d-sm-none d-md-table-cell" scope="col">End on</th>
+					<th class=" d-none d-sm-none d-md-table-cell" scope="col">Percent for allocation of prize</th>
 					<th class="d-none d-sm-none d-md-table-cell" scope="col">Questions</th>
 					<th class="d-none d-sm-none d-md-table-cell" scope="col">Prize</th>
 					<th class="d-none d-sm-none d-md-table-cell" scope="col">Entries</th>
@@ -31,10 +31,6 @@
 							<div class="col-12 p-0 d-md-none d-sm-block">
 								<table class="table">
 									<tr>
-										<th>Entries Allowed</th>
-										<td>{{$quiz->entry_nos ?? ""}}</td>
-									</tr>
-									<tr>
 										<th>Start Date|Time</th>
 										<td>{{$quiz->start_datetime ?? ""}}</td>
 									</tr>
@@ -43,8 +39,12 @@
 										<td>{{$quiz->end_datetime ?? ""}}</td>
 									</tr>
 									<tr>
+										<th>Percent for allocation of prize</th>
+										<td>{{$quiz->winning_percent ?? ""}}</td>
+									</tr>
+									<tr>
 										<th>Questions</th>
-										<td>{{ count($quiz->questions()) ?? "0"}}</td>
+										<td><a href="{{route('admin.games.questions', ['_id' => $quiz->id ])}}">{{ count($quiz->questions()) ?? "0"}}</a></td>
 									</tr>
 									<tr>
 										<th>Prize</th>
@@ -60,21 +60,21 @@
 									</tr>
 									<tr>
 										<td colspan="2">
-											<a class="btn btn-danger" href="#">EDIT</a>
+											<a class="btn btn-danger" href="{{route('admin.games.edit',['_id' => $quiz->id ])}}">EDIT</a>
 										</td>
 									</tr>
 								</table>
 							</div>
 						</td>
-						<td class=" d-none d-sm-none d-md-table-cell">{{$quiz->entry_nos ?? ""}}</td>
 						<td class=" d-none d-sm-none d-md-table-cell">{{$quiz->start_datetime ?? ""}}</td>
 						<td class=" d-none d-sm-none d-md-table-cell">{{$quiz->end_datetime ?? ""}}</td>
-						<td class=" d-none d-sm-none d-md-table-cell">{{count($quiz->questions()) }}</td>
+						<td class=" d-none d-sm-none d-md-table-cell">{{$quiz->winning_percent ?? ""}}</td>
+						<td class=" d-none d-sm-none d-md-table-cell"><a href="{{route('admin.games.questions', ['_id' => $quiz->id ])}}">{{count($quiz->questions()) }}</a></td>
 						<td class="d-none d-sm-none d-md-table-cell">₦{{number_format($quiz->prize) ?? "0"}}</td>
 						<td class="d-none d-sm-none d-md-table-cell">{{$quiz->entries->count() ?? ""}}</td>
 						<td class="d-none d-sm-none d-md-table-cell">{{$quiz->created_at->format('d FY h:i:s')}}</td>
 						<td class="d-none d-sm-none d-md-table-cell">
-							<a class="btn btn-danger" href="#">Edit</a>
+							<a class="btn btn-danger" href="{{route('admin.games.edit',['_id' => $quiz->id ])}}">Edit</a>
 						</td>
 					</tr>
 				@endforeach
