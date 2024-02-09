@@ -11,7 +11,6 @@ use App\Lib\Notify;
 use App\Lib\System;
 use App\User;
 use App\Quiz;
-use App\Question;
 use App\Entry;
 
 class TestQuizController extends Controller
@@ -31,7 +30,7 @@ class TestQuizController extends Controller
         $this->notify = new Notify;
 		$this->system = new System; 
     }
-
+    
     /**
      * Show the application dashboard.
      *
@@ -41,7 +40,12 @@ class TestQuizController extends Controller
     {
 		$today = date_create();
 		$test_id = rand(100, 9000)*time();
-		$questions = Question::limit('50')->inRandomOrder()->get();
+		$quiz = Quiz::whereDate("end_datetime","<", $today->format("Y-m-d H:i:s"))->orderBy("id", "DESC")->get()->first();
+		
+		//~ return $quiz->questions;
+		$questions = json_decode($quiz->questions, true); // Convert to Array
+		$questions = collect($questions); // change to collections
+		
 		return view('testquiz.board',[ 'test_id' => $test_id, 'questions' => $questions]);
     }
     

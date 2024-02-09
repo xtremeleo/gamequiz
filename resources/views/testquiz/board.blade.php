@@ -14,25 +14,21 @@
 			@csrf
 			<div class="game-for">
 				
-				@for ($i = 0; $i < $questions->count(); $i++)
-					@php
-						$next = next($questions);
-						$options = json_decode($questions[$i]->options, true);
-					@endphp
-					<div id="q{{$i}}" @if($i > 0)style="display:none;" @endif  >
+				@for($i = 0; $i < count($questions); $i++)
+					
+					<div id="q{{$i}}" @if($i > 0) style="display:none;" @endif  >
 						<div class="form-group">
 							<label class="control-label">
-								<span class="wine-red">{{$questions[$i]->section}}</span><br/>
-								{!!$questions[$i]->question!!}
+								{!!$questions[$i]['question']!!}
 							</label>
 							
 							<div class="mt-3">
 								<strong>Answers:</strong>
-								@foreach($options as $key => $value)
+								@foreach($questions[$i]['options'] as $key => $value)
 									<div class="form-check">
-										<label class="form-check-label p-1" for="answer_{{$questions[$i]->id}}_{{$key}}">
-											<input class="form-check-input" type="radio" name="answers[{{$questions[$i]->id}}]" id="answer_{{$questions[$i]->id}}_{{$key}}" value="{{$key}}" >
-											({{$key}}) {{$value}}
+										<label class="form-check-label p-1" for="answer_questions_{{$key}}">
+											<input class="form-check-input" type="radio" name="answers[{{$key}}]" id="answer_questions_{{$key}}" value="{{$key}}" >
+											{{$value}}
 										</label>
 									</div>
 								@endforeach
